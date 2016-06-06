@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="tab">
+            <ul>
+                <li ><a href="#tab1">Tab1</a></li>
+                <li ><a href="#tab2">Tab2</a></li>
+                <li ><a href="#tab3">Tab3</a></li>
+            </ul>
+
+
+
+            <div id="tab1">To change this license header, choose License Headers in Project Properties.
+                To change this template file, choose Tools | Templates
+                and open the template in the editor.</div>
+
+            <div id="tab2">contenuto del 2</div>
+
+            <div id="tab3">contenuto del tab8</div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"><!-- SCRIPT LIBRERIA  jquery-ui -->
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento
+
+                $('#tab').tabs({
+                    beforeActivate: function (event, ui) {
+
+                        var idTab = ui.newPanel.attr('id');
+                        var panel = ui.newPanel.text();
+                        var cifra= idTab.replace("tab",""); //Prendo solo cifra numerica                 
+                        if (panel.indexOf(cifra) < 0) {
+                            event.preventDefault();
+                        };
+
+
+                    }
+                });
+
+            });
+        </script>
+    </body>
+</html>
