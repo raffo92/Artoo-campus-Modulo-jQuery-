@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="div1">TODO write content
+            <p>Paragrafo</p>
+        </div>
+        <div class="test">a</div>
+        <div class="test">b</div>
+        <div class="test">c</div>
+        <div class="test test2">b</div>
+        <p>Paragrafo no div</p>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+                console.log($('#div1').html());//HTML se non trova return undefined
+                console.log($('.test').text());//Testo (leva tag)
+                console.log($('.test.test2').text());
+                //console.log($('.test').length);
+                console.log($('div p').text('paragrafo interno'));//Testo con Sistituzione contenuto
+                console.log($('#div2').length); //Return 0 quando non ci sono elementi --- n numero elementi trovati
+
+                $('.test').addClass('test3');//Aggiunge una classe (es. test3) agli elementi selezionati
+
+                $('.test').hide();
+                $('.test').show();
+
+                $('.test').each(function (i, element) { //Cicla su tutti gli elementi della Class TEST
+                    console.log(i, element.innerHTML);//Restituisce il contenuto dell elemento [JavaScript PURO]
+                    //var a=$(element);
+                    var a=$(this);//Prende element
+                    console.log(i, a.text());//Restituisce il contenuto dell elemento [jQuery]
+                    console.log(i, a.get());//NODO JavaScript PURO
+                    
+                });
+
+                console.log($('.test').html('<a href="">pippo </a>'));//Testo (leva tag)
+
+            });//Non Passo jQuery Poichè lo fa il ready in automatico
+        </script>
+    </body>
+</html>

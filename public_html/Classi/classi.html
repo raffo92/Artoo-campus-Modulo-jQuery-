@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div>TODO write content
+
+
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+              
+        var SuperClass = function (type) {
+                    this.type = type;
+                    this.getType = function () {
+                        return this.type;
+                    }
+                }
+
+SuperClass.prototype.getMessage=function(){
+    console.log("Pippo Messaggio");
+}
+var istanza = new SuperClass('integer');
+console.log(istanza.type);
+console.log(istanza.getType());
+istanza.getMessage();
+
+SubClass= function(t){// Assegno t della SubClass come Type della classe
+  //  SuperClass.call(this,t,a,b);//Funzione call passa parametri alla Classe Padre (dopo this vanno i parametri)
+SuperClass.call(this,t);
+}
+
+SubClass.prototype= new SuperClass();
+
+var s= new SubClass('tipo');
+s.getMessage();
+console.log(s.type)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+        </script>
+    </body>
+</html>

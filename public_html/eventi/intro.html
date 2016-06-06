@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="div">
+            <button class="test">Cliccami!</button>
+            <button class="test">Cliccami!</button>
+            <button class="test">Cliccami!</button> 
+    
+
+        <a href="https://www.google.it/">Vai a Google</a>        
+        <input type="text" class="input" />
+
+
+    </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+
+
+                $('#div').on('click', '.test', function (event) {
+                    alert("posizione(" + event.pageX + " , " + event.pageY + ")");
+                });
+
+
+                $('<button/>', {class: 'test', text: 'CliccamiCreato'}).appendTo($('#div'));
+                $('a').on('click', function (event) {
+                    alert("Cliccato link")
+                    event.preventDefault();
+                });
+
+
+                $('#div .input').on('keydown', function (event) {
+                    if (event.keyCode == 65)//Blocco a minuscolo
+                        event.preventDefault();
+                });
+
+                $('#div').on('keydown', function (event) {                    
+                        console.log((event.originalEvent.code));
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+        </script>
+    </body>
+</html>

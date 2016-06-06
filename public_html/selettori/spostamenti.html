@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .blue{
+                color: blue   
+            }           
+        </style>
+    </head>
+    <body>
+        <span id="span">Roba da spostare</span>
+
+        <ul class="lista">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>           
+        </ul>
+
+
+
+          <span id="test"> contenuto 1</span>
+           <span id="test1"> contenuto 2 </span>
+            <span id="test2">contenuto 3 </span>
+
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+
+
+                // $('#span').prependTo($('.lista li:nth-last-child(1)').prepend(' - ')).css('color','red').text(" "+$('#span').text());
+                //$('#span').appendTo($('.lista li:nth-last-child(1)').prepend(' - ')).css('color','red');
+                //$('.lista li:first').prepend($('#span').css('color','green').append(' - '));
+
+                // $('#span').clone().attr('id', 'span2').css('color', 'green').appendTo($('.lista li').eq(1))
+                // $('#span').css('color', 'red');
+
+
+
+                //$('.lista li').wrapInner('<span class="blue"></span>');
+                //$('.lista li').wrapAll('<span class="blue"></span>'); // A tutti
+                // $('.lista li').unwrap('<span class="blue"></span>'); //Annulla Wrap
+
+                $('<span/>', {
+                    id: 'creato',
+                    style: 'color: pink',
+                    class: 'prova2'
+                }).wrapInner('AAAAAA').appendTo($('.lista li:last'));
+
+                $('#test').empty();
+                $('#test1').remove();
+                
+                var a = $('#test2').detach();
+                a.css('color','red');
+                a.insertBefore($('#test'));
+
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #p2{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p id="p1">Paragrafo Visibile</p>
+            <p id="p2">Paragrafo Nascosto</p>
+
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+                //Prende i Millisecondi
+                //$('#p1').fadeToggle(3000);//Opacity
+                // $('#p2').fadeToggle(3000);
+
+                //$('#p1').slideToggle(3000, function () {
+                // alert("animazione Finita");
+                // });
+
+                // $('#p2').slideToggle(3000);
+
+                //$('#p1').stop();
+
+                setInterval(function () {
+                    $('#p1').slideToggle(3000);
+                    $('#p2').slideToggle(3000);
+                    /*
+                    setTimeout(function () {
+                        $('#p1').stop();
+                        $('#p2').stop();
+                        // $(':animated').stop();//Pseudo selettore per BLOCCARE TUTTE LE ANIMAZIONI
+                    }, 1500)
+*/
+                    // $(':animated').stop();//Pseudo selettore per BLOCCARE TUTTE LE ANIMAZIONI
+                }, 3000);
+
+                clearInterval(9000);
+
+                /*
+                 setTimeout(function () {                    
+                 $('#p1').stop();
+                 // $(':animated').stop();//Pseudo selettore per BLOCCARE TUTTE LE ANIMAZIONI
+                 }, 2000)
+                 */
+
+
+
+
+
+
+
+
+
+
+
+            });
+        </script>
+    </body>
+</html>

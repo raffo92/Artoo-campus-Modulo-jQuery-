@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+
+
+        <ul>
+            <li class="test">1</li>
+            <li class="test">2</li>
+            <li class="test">3</li>
+            <li class="test"><span>4</span></li>
+            <li class="test">5</li>
+            <li class="test">6</li>        
+        </ul>
+
+
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+                var a = $('li');
+                //var c = a.clone(); CLONA l'oggetto jQuery
+
+                //$('li').addClass('test2').text('pippo').css('color','red');
+                //$('li').eq(2).addClass('test2').text('pippo').css('color', 'red'); // .eq(NUMERO) Prende solo iesimo elemento
+                // $('li').addClass('test2').eq(3).text('paperino').css('color', 'green');
+                //$('li').addClass('test2').eq(4).text('pluto').end().css('color', 'blue');//.end() Prende Selezione originale [es. $('li')]
+
+                a.addClass('test2').eq(2).text('pippo').end().css('color', 'red');
+                a.not('#2').css('font-weight', 'bold');   // Tutti Tranne '#iesimo'    
+                a.filter('#2').css('font-style', 'italic'); //SOLO '#iesimo' 
+                a.has('span').css('background', 'yellow'); // QUELLI che contengono un TAG [es. span]
+                a.first().css({
+                    fontSize: '53px',
+                    fontFamily: 'Courier',
+                });
+
+                a.filter(function () {
+                    var c = parseInt($(this).text(), 10);
+                    return c % 2 == 0;
+                    return true;
+                }).css('text-decoration', 'underline');
+
+                a.each(function () {
+                    console.log($(this).css('color'));
+                });
+
+
+
+
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .lampadina{
+                width: 100px;
+                height: 100px;
+                border: 1px solid;
+            }
+            .accesa{
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            <div class="lampadina accesa"></div>
+            <button class="interruttore">INTERRUTTORE</button>
+            <button class="interruttore">INTERRUTTORE</button>
+            <button class="interruttore">INTERRUTTORE</button>
+
+
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+                /* //NORMALE
+                 $('#div1 .interruttore').on("click", function () {
+                 $('#div1 .lampadina').toggleClass('accesa');
+                 });
+                 */
+                //CUSTOM
+                $('#div1').on('toggle_custom', function () {
+                    $('#div1 .lampadina').toggleClass('accesa');
+                });
+
+                $('body').on('keypress',function(event) {
+                    if(event.keyCode==115){
+                    console.log(event);
+                    $('#div1 .interruttore:first').trigger('toggle_custom');
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+        </script>
+    </body>
+</html>

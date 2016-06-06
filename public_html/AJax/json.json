@@ -1,0 +1,8 @@
+{
+    "name": "Raffo",
+    "content":"contenuto json",
+    "style":{
+        "color":"red",
+        "beckground":"yellow"
+    }
+}

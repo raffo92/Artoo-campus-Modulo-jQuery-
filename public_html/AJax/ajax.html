@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body>
+        <p id="par1">Testo Prova</p>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+
+                $.ajax({
+                    url: 'json.json',
+                    dataType: "json",
+                    method: 'GET',
+                    data: {
+                        nome: 'Pippo'
+                    },
+                    async: true, //Default TRUE // FALSE attendo che la richiesta viene terminata ed esegue fn successive
+                    context: $('#par1'), //Valore del THIS nelle callback
+                    
+                    success: function (response) {
+                     // $(this).css(response.style.color);
+                      for(element in response.style){
+                       this.css(element,response.style[element]);                     
+                 
+                  }},
+                    
+                    error: function (xhr, status, errorThrown) {
+                        alert("ERRORE! " + errorThrown);
+                    },
+                    
+                    complete: function () {
+                        console.log('Finita');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div>
+            <button id='button1' class="test">Cliccami 1 volta!</button>
+            <button id='button2' class="test">Cliccami!</button>
+            <button id='button3' class="test">Cliccami!</button>
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+
+                $('#button1').one('click', function (event) { //Fa evento 1 volta sola
+                    alert('Ciao');
+                });
+
+
+                $('.test').on('click', function () {
+                    console.log('cliccato pulsante test!')
+                });
+
+
+                $('#button1').on('click.uno', function () {
+                    console.log('cliccato pulsante test!')
+                });
+
+
+                $('#button1').off('click'); //Toglie evento Click
+
+
+                $('button').off('click.uno'); //Toglie evento Click con namespace "uno"
+
+
+            });
+        </script>
+    </body>
+</html>

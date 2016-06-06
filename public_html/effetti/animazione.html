@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #par1{
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="par1">TESTO DEL PARAGRAFO</p>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento(jQuery passato a fine fn)
+
+                $('#par1').animate({
+                    opacity:0.2,
+                    fontSize:'20px'
+                }, 2000, 'swing', function () { //linear (accellerazione costante)- swing (acc iniziale bassa- fase finale acc++)
+                    alert('Animazione completata')//exp (accellerazione crescente)
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+        </script>
+    </body>
+</html>

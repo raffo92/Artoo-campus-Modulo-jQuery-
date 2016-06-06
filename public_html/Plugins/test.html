@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        </style>
+    </head>
+    <body>
+        <p>Paragrafo Pippo</p>
+        <p>Paragrafo Pluto</p>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="plugin.js"></script>
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento
+                // $("p").addClass('test').messaggio().messaggio();
+                $.colore.defaults.color = 'red';
+                $("p").addClass('test').colore({background: 'yellow'});
+
+            });
+        </script>
+    </body>
+</html>

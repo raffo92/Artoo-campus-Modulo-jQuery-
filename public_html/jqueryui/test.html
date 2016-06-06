@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Artoo jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .div{
+                height: 200px;
+                width: 200px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div"></div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"><!-- SCRIPT LIBRERIA  jquery-ui -->
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script><!-- SCRIPT LIBRERIA  jquery-ui -->
+        <script>
+
+            jQuery.noConflict(); //Risolvo Conflitti con $
+            jQuery(document).ready(function ($) { //Assegno $ come Argomento
+
+                //console.log($.easing);
+                /*
+                 $('.div').animate({
+                 height: 0
+                 }, 3000, 'easeOutBounce')
+                 */
+                $('.div').hide('explode', 2000, function () { //shake - pulsate - explode
+                    console.log("ok!");
+                    $('.div').show('pulsate', 1000, function () {//SLIDE   .show('pulsate',1000)
+                        $('.div').removeClass('div', 2000);
+                    })
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+        </script>
+    </body>
+</html>
