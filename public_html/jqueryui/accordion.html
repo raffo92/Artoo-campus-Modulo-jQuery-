@@ -9,6 +9,7 @@ and open the template in the editor.
         <title>Artoo jQuery</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"><!-- SCRIPT LIBRERIA  jquery-ui -->
         <style>
         </style>
     </head>
@@ -28,13 +29,39 @@ and open the template in the editor.
                 and open the template in the editor.</div>
         </div>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"><!-- SCRIPT LIBRERIA  jquery-ui -->
+
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script>
 
             jQuery.noConflict(); //Risolvo Conflitti con $
             jQuery(document).ready(function ($) { //Assegno $ come Argomento
-                $('#acc').accordion();
+
+
+                $('#acc').accordion({
+                    active: 2, //Tab iniziale
+                    event: 'mouseover', //Evento
+                    header: 'h3',
+                    activate: function(){ //all attivazione di TAB
+                        console.log('Attivo Tab');
+                    }
+                });
+                $('#acc').accordion('option', 'event', 'click');
+                
+                 $('#acc').on('accordionactivate',function(event,ui){
+                     console.log($('#acc').accordion())
+                     console.log('Attivo Tab Nuovo');
+                 });
+
+
+
+
+
+
+
+
+
+
+
 
 
             });
